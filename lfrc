@@ -50,4 +50,6 @@ cmap <down> cmd-history-next
 #cmap <c-right> cmd-word
 #cmap <c-left> cmd-word-back
 
+source ~/.config/lf/fzf
+
 # vim: ft=lf
