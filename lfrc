@@ -17,24 +17,7 @@ set scrolloff 10
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 map r push :rename<space>
 
-# delete current file or selected files (prompting)
-cmd delete-soft ${{
-    set -f
-    printf "$fx\n"
-    printf "delete? [y/n] "
-    read ans
-    [ $ans = "y" ] && rm -r $fx
-}}
-cmd delete-force ${{
-    set -f
-    printf "$fx\n"
-    printf "delete? [y/n] "
-    read ans
-    [ $ans = "y" ] && rm -rf $fx
-}}
-
-map <delete> delete-soft
-map <s-delete> delete-force
+map <delete> delete
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
