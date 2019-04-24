@@ -1,5 +1,5 @@
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+set shell zsh
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -16,8 +16,10 @@ set scrolloff 10
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 map r push :rename<space>
-
+# map builtin delete command
 map <delete> delete
+# better asynchronious search
+map / $lf -remote "send $id select '$(all_files=(./*(N)); printf '%s\n' ${all_files[@]} | fzf)'"
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
@@ -32,7 +34,5 @@ cmap <down> cmd-history-next
 # waiting for https://github.com/gokcehan/lf/issues/111
 #cmap <c-right> cmd-word
 #cmap <c-left> cmd-word-back
-
-source ~/.config/lf/fzf
 
 # vim: ft=lf
