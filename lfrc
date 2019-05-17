@@ -20,6 +20,7 @@ map r push :rename<space>
 map <delete> delete
 # better asynchronious search
 map / $lf -remote "send $id select '$(all_files=(./*(ND)); printf '%s\n' ${all_files[@]} | fzf)'"
+map i $bat --paging=always $f
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
