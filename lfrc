@@ -40,6 +40,8 @@ cmd Paste !{{
 		sudo mv -gi $files .
 	fi
 }}
+# Add mkdir mapping
+map d push $mkdir<space>
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
