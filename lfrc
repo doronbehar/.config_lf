@@ -21,6 +21,25 @@ map <delete> delete
 # better asynchronious search
 map / $lf -remote "send $id select '$(all_files=(./*(ND)); printf '%s\n' ${all_files[@]} | fzf)'"
 map i $bat --paging=always $f
+# Add delete with sudo command
+cmd Delete !{{
+	echo $fs | xargs -d$'\n' sudo rm -r
+}}
+# Add paste with sudo command
+cmd Paste !{{
+	lf -remote 'load' | while read file; do
+		if [ ! -n "${mode+1}" ]; then
+			mode="$file"
+			continue
+		fi
+		files+=("$file")
+	done
+	if [[ "$mode" == copy ]]; then
+		sudo cp -Rgi $files .
+	elif [[ "$mode" == move ]]; then
+		sudo mv -gi $files .
+	fi
+}}
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
