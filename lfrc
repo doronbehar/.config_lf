@@ -19,7 +19,7 @@ map r push :rename<space>
 # map builtin delete command
 map <delete> delete
 # better asynchronious search
-map / $lf -remote "send $id select '$(all_files=(./*(N)); printf '%s\n' ${all_files[@]} | fzf)'"
+map / $lf -remote "send $id select '$(all_files=(./*(ND)); printf '%s\n' ${all_files[@]} | fzf)'"
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
