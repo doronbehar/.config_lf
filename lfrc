@@ -49,7 +49,7 @@ set drawbox on
 set hidden on
 set globsearch on
 set tabstop 4
-set previewer ~/.config/lf/scope.sh
+set previewer /home/doron/.go/bin/pistol
 
 cmap <up> cmd-history-prev
 cmap <down> cmd-history-next
