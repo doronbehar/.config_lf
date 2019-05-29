@@ -15,7 +15,9 @@ set scrolloff 10
 
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-map r push :rename<space>
+map rc push :rename<space>
+map ra $lf -remote "send $id push :rename<space>$f"
+map re $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
 # map builtin delete command
 map <delete> delete
 # better asynchronious search
@@ -41,7 +43,7 @@ cmd Paste !{{
 	fi
 }}
 # Add mkdir mapping
-map d push $mkdir<space>
+map ad push $mkdir<space>
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
