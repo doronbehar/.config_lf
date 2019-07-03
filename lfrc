@@ -46,6 +46,8 @@ cmd Paste !{{
 map ad push $mkdir<space>
 map af push $touch<space>
 
+map | push !cat<space>$f<space>|<space>
+
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
 set drawbox on
