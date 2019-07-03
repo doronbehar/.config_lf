@@ -51,7 +51,7 @@ set drawbox on
 set hidden on
 set globsearch on
 set tabstop 4
-set previewer /home/doron/.go/bin/pistol
+set previewer pistol
 
 cmap <up> cmd-history-prev
 cmap <down> cmd-history-next
