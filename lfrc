@@ -42,8 +42,9 @@ cmd Paste !{{
 		sudo mv -gi $files .
 	fi
 }}
-# Add mkdir mapping
+# `mkdir` and `touch` mappings
 map ad push $mkdir<space>
+map af push $touch<space>
 
 # from some reason this doesn't work: `set dirfirst off`
 set dirfirst!
