@@ -46,6 +46,9 @@ cmd Paste !{{
 map ad push $mkdir<space>
 map af push $touch<space>
 
+# use a different mapping to redraw, the default '<c-l>' clashes with tmux and vim navigations
+map ; redraw
+
 map | push !cat<space>$f<space>|<space>
 
 # If $EDITOR is nvr --remote-silent --remote-wait as it is when lf is running
