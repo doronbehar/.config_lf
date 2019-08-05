@@ -43,8 +43,8 @@ cmd Paste !{{
 	fi
 }}
 # `mkdir` and `touch` mappings
-map ad push $mkdir<space>
-map af push $touch<space>
+map ad push $mkdir<space>""<left>
+map af push $touch<space>""<left>
 
 # use a different mapping to redraw, the default '<c-l>' clashes with tmux and vim navigations
 map ; redraw
