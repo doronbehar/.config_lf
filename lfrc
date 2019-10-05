@@ -48,11 +48,12 @@ map ; redraw
 
 map | push !cat<space>$f<space>|<space>
 
+map e $$EDITOR $f $fs
 # If $EDITOR is nvr --remote-silent --remote-wait as it is when lf is running
 # inside a Neovim's :term, we would like to use just $nvr as the editor
 ${{
 	if [ -n "${NVIM_LISTEN_ADDRESS+1}" ]; then
-		lf -remote "send $id map e \$nvr \$f"
+		lf -remote "send $id map e \$nvr \$f \$fs"
 	fi
 }}
 
