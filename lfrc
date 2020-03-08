@@ -41,6 +41,24 @@ cmd Paste !{{
 		sudo mv -gi $files .
 	fi
 }}
+# Link files
+cmd Link %{{
+	lf -remote 'load' | while read file; do
+		if [ ! -n "${mode+1}" ]; then
+			mode="$file"
+			continue
+		fi
+		files+=("$file")
+	done
+	# symbolicly copy mode is indicating a soft link
+	if [[ "$mode" == copy ]]; then
+		ln -sr $files -t .
+	# while a move mode is indicating a hard link
+	elif [[ "$mode" == move ]]; then
+		ln $files -t .
+	fi
+}}
+map P :Link
 # `mkdir` and `touch` mappings
 map ad push $mkdir<space>""<left>
 map af push $touch<space>""<left>
