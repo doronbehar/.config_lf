@@ -4,7 +4,7 @@ set shell zsh
 set color256
 
 # Do as explained here: https://github.com/gokcehan/lf/wiki/Tips#split-words-by-default-in-zsh
-set shellopts '-eu:--shwordsplit'
+set shellopts '-e:--shwordsplit'
 set ifs "\n"
 
 # leave some space at the top and the bottom of the screen
