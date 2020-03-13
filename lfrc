@@ -14,13 +14,30 @@ set scrolloff 10
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 # Unmap the default binding
 map r
+# Rename the file with a completely different name
 map rc push :rename<space>
-map ra $lf -remote "send $id push :rename<space>$f"
-map re $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
+# Edit the current filename
+map ra ${{
+	# get 'basename' of the selection
+	filename="${f##*/}"
+	# quote it so we won't deal with quotes in the lf -remote command
+	filename="$(printf '%q' "$filename")"
+	filename="${filename// /<space>}"
+	lf -remote "send $id push :rename<space>$filename"
+}}
+# Edit filename before the extension
+map re ${{
+	# get 'basename' of the selection
+	filename="${f##*/}"
+	# quote it so we won't deal with quotes in the lf -remote command
+	filename="$(printf '%q' "$filename")"
+	filename="${filename// /<space>}"
+	lf -remote "send $id push :rename<space>$filename<a-b><c-b>"
+}}
 # map builtin delete command
 map <delete> delete
 # better asynchronious search
-map / $lf -remote "send $id select '$(all_files=(./*(ND)); printf '%s\n' ${all_files[@]} | fzf)'"
+map / $lf -remote "send $id select $(printf '%q' $(all_files=(./*(ND)); printf '%s\n' ${all_files[@]} | fzf))"
 map i $bat --paging=always $f
 # Add delete with sudo command
 cmd Delete !{{
