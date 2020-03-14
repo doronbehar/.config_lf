@@ -44,7 +44,7 @@ cmd Delete !{{
 	echo $fs | xargs -d$'\n' sudo rm -r
 }}
 # Add paste with sudo command
-cmd Paste !{{
+cmd SudoPaste !{{
 	lf -remote 'load' | while read file; do
 		if [ ! -n "${mode+1}" ]; then
 			mode="$file"
