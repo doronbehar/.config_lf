@@ -57,7 +57,33 @@ cmd SudoPaste !{{
 	elif [[ "$mode" == move ]]; then
 		sudo mv -gi $files .
 	fi
+	# get 'basename' of the selection
+	filename="${files[1]##*/}"
+	# quote it so we won't deal with quotes in the lf -remote command
+	filename="$(printf '%q' "$filename")"
+	# need to reload before selecting
+	lf -remote "send $id reload"
+	lf -remote "send $id select $filename"
 }}
+# paste and select the file pasted
+cmd Paste %{{
+	lf -remote 'load' | while read file; do
+		if [ ! -n "${mode+1}" ]; then
+			mode="$file"
+			continue
+		fi
+		if [ -f "${file}" ]; then
+			# get 'basename' of the selection
+			filename="${file##*/}"
+			# quote it so we won't deal with quotes in the lf -remote command
+			filename="$(printf '%q' "$filename")"
+			break
+		fi
+	done
+	lf -remote "send $id paste"
+	lf -remote "send $id select $filename"
+}}
+map p Paste
 # Link files
 cmd Link %{{
 	lf -remote 'load' | while read file; do
@@ -78,6 +104,13 @@ cmd Link %{{
 	elif [[ "$mode" == move ]]; then
 		ln $files -t .
 	fi
+	# get 'basename' of the selection
+	filename="${files[1]##*/}"
+	# quote it so we won't deal with quotes in the lf -remote command
+	filename="$(printf '%q' "$filename")"
+	# need to reload before selecting
+	lf -remote "send $id reload"
+	lf -remote "send $id select $filename"
 }}
 map P :Link
 # `mkdir` and `touch` mappings
