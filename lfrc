@@ -117,6 +117,10 @@ map P :Link
 map ad push $mkdir<space>""<left>
 map af push $touch<space>""<left>
 
+# `L` for previewing text files with less and bat
+# map L $bat --theme=ansi-dark --paging=never --color=always $f | less
+map L $pistol $f | less
+
 # use a different mapping to redraw, the default '<c-l>' clashes with tmux and vim navigations
 map ; redraw
 
