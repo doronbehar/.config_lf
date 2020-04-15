@@ -83,7 +83,6 @@ cmd Paste %{{
 	lf -remote "send $id paste"
 	lf -remote "send $id select $filename"
 }}
-map p Paste
 # Link files
 cmd Link %{{
 	lf -remote 'load' | while read file; do
