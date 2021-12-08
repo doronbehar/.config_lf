@@ -1,8 +1,6 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell zsh
 
-set color256
-
 # Do as explained here: https://github.com/gokcehan/lf/wiki/Tips#split-words-by-default-in-zsh
 set shellopts '-e:--shwordsplit'
 set ifs "\n"
