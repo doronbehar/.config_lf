@@ -123,11 +123,10 @@ map ; redraw
 
 map | push !cat<space>$f<space>|<space>
 
-# from some reason this doesn't work: `set dirfirst off`
-set dirfirst!
-set drawbox on
-set hidden on
-set globsearch on
+set dirfirst false
+set drawbox true
+set hidden true
+set globsearch true
 set tabstop 4
 set previewer pistol
 
