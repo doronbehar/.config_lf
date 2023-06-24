@@ -132,8 +132,7 @@ set previewer pistol
 
 cmap <up> cmd-history-prev
 cmap <down> cmd-history-next
-# waiting for https://github.com/gokcehan/lf/issues/111
-#cmap <c-right> cmd-word
-#cmap <c-left> cmd-word-back
+cmap <c-right> cmd-word
+cmap <c-left> cmd-word-back
 
 # vim: ft=lf
