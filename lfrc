@@ -83,7 +83,7 @@ cmd Paste %{{
 }}
 # Link files
 cmd Link %{{
-	lf -remote 'load' | while read file; do
+	cat ~/.local/share/lf/files | while read file; do
 		if [ ! -n "${mode+1}" ]; then
 			mode="$file"
 			continue
