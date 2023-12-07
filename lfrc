@@ -90,7 +90,7 @@ cmd Link %{{
 		fi
 		files+=("$file")
 	done
-	if [ "${#files[@]}" -le 1 ]; then
+	if [[ "${#files[@]}" == 0 ]]; then
 		lf -remote "send $id echo no files to link"
 		exit 0
 	fi
