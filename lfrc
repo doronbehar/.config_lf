@@ -3,6 +3,8 @@ set shell zsh
 
 # Do as explained here: https://github.com/gokcehan/lf/wiki/Tips#split-words-by-default-in-zsh
 set shellopts '-e:--shwordsplit'
+# I use lf also on Windows msys2, and this has to be used with the above shell.
+set shellflag "-c"
 set ifs "\n"
 
 # leave some space at the top and the bottom of the screen
