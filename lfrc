@@ -124,6 +124,10 @@ map L $pistol $f | less
 map ; redraw
 
 map | push !cat<space>$f<space>|<space>
+# From some reason it is needed to be explicit on Windows+msys2+zsh (and it
+# doesn't hurt the UNIX configuration), see:
+# https://github.com/gokcehan/lf/discussions/2629
+map e $$EDITOR "$f"
 
 set dirfirst false
 set drawbox true
