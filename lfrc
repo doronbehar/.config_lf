@@ -132,7 +132,6 @@ map e $$EDITOR "$f"
 set dirfirst false
 set drawbox true
 set hidden true
-set globsearch true
 set tabstop 4
 set previewer pistol
 
